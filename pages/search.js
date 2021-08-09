@@ -20,7 +20,7 @@ function Search({ searchData }) {
     <div className="h-screen">
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
 
-      <main className="flex">
+      <main className="flex max-w-7xl mx-auto">
         <section className="flex-grow pt-14 px-6">
           <p className="text-xs">
             300+ Stays - {range} - for {noOfGuests} guests
