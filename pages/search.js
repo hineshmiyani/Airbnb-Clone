@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import InfoCard from "../components/InfoCard";
 import { useRouter } from "next/router";
 import { format } from "date-fns";
+import Map from "../components/Map";
 
 function Search({ searchData }) {
   const router = useRouter();
@@ -20,8 +21,9 @@ function Search({ searchData }) {
     <div className="h-screen">
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
 
-      <main className="flex max-w-7xl mx-auto">
+      <main className="flex  mx-auto">
         <section className="flex-grow pt-14 px-6">
+          {/* Heading */}
           <p className="text-xs">
             300+ Stays - {range} - for {noOfGuests} guests
           </p>
@@ -30,6 +32,7 @@ function Search({ searchData }) {
             Stays in {location}
           </h1>
 
+          {/* Filter Buttons */}
           <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap  ">
             {/* Below in className ".button" is custom tailwind css  */}
             <button className="button">Cancellation Flexibility</button>
@@ -39,6 +42,7 @@ function Search({ searchData }) {
             <button className="button">More filters</button>
           </div>
 
+          {/* InfoCard */}
           <div className="flex flex-col">
             {searchData.map(
               ({ img, location, title, description, star, price, total }) => (
@@ -55,6 +59,10 @@ function Search({ searchData }) {
               )
             )}
           </div>
+        </section>
+
+        <section className="hidden xl:inline-flex xl:min-w-[600px]">
+          <Map searchData={searchData} />
         </section>
       </main>
       <Footer />
